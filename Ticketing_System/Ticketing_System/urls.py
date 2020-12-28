@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', views.register ,name="register"),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('query/', views.query,name="query"),
     
    # path('', include('server_app.urls')),
    # path('user/', include('client_app.urls')),
