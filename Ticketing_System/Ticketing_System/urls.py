@@ -20,11 +20,14 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from client_app import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', views.register ,name="register"),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+   # path('api-auth/',include(rest_framework.urls)),
     path('query/', views.query,name="query"),
+    path('answer/', views.get_answer,name="answer"),
     
    # path('', include('server_app.urls')),
    # path('user/', include('client_app.urls')),
