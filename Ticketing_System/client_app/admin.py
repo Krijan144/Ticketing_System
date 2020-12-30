@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import UserModel,AnswerModel
+from .models import QueryModel,AnswerModel
 
 # Register your models here.
-admin.site.register(UserModel)
+admin.site.register(QueryModel)
 admin.site.register(AnswerModel)
 

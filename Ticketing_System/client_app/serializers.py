@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import UserModel,AnswerModel
+from .models import QueryModel,AnswerModel
 
-class UserSerializer(serializers.ModelSerializer):
+class QuerySerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserModel
+        model = QueryModel
         fields = ['username','query','timestamp','updated']
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = AnswerModel
-        fields = ['answered_by','answer','question']
+        fields = ['answered_by','answer','query']
