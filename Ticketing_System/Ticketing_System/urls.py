@@ -27,9 +27,9 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
    # path('api-auth/',include(rest_framework.urls)),
     #path('query/', views.query,name="query"),
-    path('answer/', views.get_answer,name="answer"),
+    path('answer/<int:id>', views.get_answer,name="answer"),
     path('submitquery/',views.submit_query,name="submit_query"),
-    path('post_answer/<int:id>',views.post_answer,name="post_answer")
+    path('post_answer/',views.post_answer,name="post_answer")
     
    # path('', include('server_app.urls')),
    # path('user/', include('client_app.urls')),

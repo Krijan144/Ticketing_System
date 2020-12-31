@@ -39,9 +39,10 @@ def register(request):
 #     return render(request, 'query.html', {'form': form})
 
 @api_view(["GET"])
-def get_answer(request):
-    answer = AnswerModel.objects.all()
-    serializer = AnswerSerializer(answer,many=True)
+def get_answer(request,id):
+    account = QueryModel.objects.get(id=id)
+    answer = AnswerModel(answer=account,answered_by=account,query=account)
+    serializer = AnswerSerializer(answer)
     return JsonResponse({'answer': serializer.data}, safe=False, status=status.HTTP_200_OK)
 
 
@@ -55,10 +56,12 @@ def submit_query(request):
         return JsonResponse(serializer.data,status=status.HTTP_201_CREATED)
 
 @api_view(["POST"])
-def post_answer(request,id):
-     account = QueryModel.objects.get(id=id)
-     query = AnswerModel(query=account)
-     serializer = AnswerSerializer(query,data=request.data)
+def post_answer(request):
+     #account = QueryModel.objects.get(id=id)
+     #import pdb;pdb.set_trace()
+     #query = AnswerModel(query=account)
+     #serializer = AnswerSerializer(query,data=request.data)
+     serializer = AnswerSerializer(data=request.data)
 
      if serializer.is_valid():
         serializer.save()
