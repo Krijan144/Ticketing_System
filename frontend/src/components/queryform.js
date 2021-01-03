@@ -15,7 +15,6 @@ class queryform extends Component {
 
     handleChange(event){
         this.setState({[event.target.getAttribute("name")]: event.target.value});
-        
     }
     handleSubmit(event){
         event.preventDefault();

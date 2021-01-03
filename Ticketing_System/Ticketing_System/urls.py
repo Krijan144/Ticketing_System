@@ -29,7 +29,9 @@ urlpatterns = [
     #path('query/', views.query,name="query"),
     path('answer/<int:id>', views.get_answer,name="answer"),
     path('submitquery/',views.submit_query,name="submit_query"),
-    path('post_answer/',views.post_answer,name="post_answer")
+    path('post_answer/',views.post_answer,name="post_answer"),
+    path('getquery/',views.get_query,name="get_query"),
+
     
    # path('', include('server_app.urls')),
    # path('user/', include('client_app.urls')),

@@ -11,7 +11,6 @@ from django.http import JsonResponse
 from rest_framework import permissions
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
-import json
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
@@ -45,7 +44,12 @@ def get_answer(request,id):
     serializer = AnswerSerializer(answer)
     return JsonResponse({'answer': serializer.data}, safe=False, status=status.HTTP_200_OK)
 
-
+@api_view(["GET"])
+def get_query(request):
+   
+    querylist=QueryModel.objects.all()
+    serializer = QuerySerializer(querylist,many=True)
+    return JsonResponse(serializer.data,safe=False,status=status.HTTP_200_OK)
 
 @api_view(["POST"])
 def submit_query(request):

@@ -4,7 +4,7 @@ from .models import QueryModel,AnswerModel
 class QuerySerializer(serializers.ModelSerializer):
     class Meta:
         model = QueryModel
-        fields = ['username','query','timestamp','updated']
+        fields = '__all__'
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
