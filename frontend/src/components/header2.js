@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
 import {Navbar,NavDropdown,Form,FormControl,Nav,Button} from 'react-bootstrap';
 
-class Nav1 extends Component{
+class Nav2 extends Component{
 
     render(){return(
                 <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">TECHRIDA</Navbar.Brand>
+            <Navbar.Brand href="#home">TECHRIDA STAFF</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -28,4 +28,4 @@ class Nav1 extends Component{
     )}
 }
 
-export default Nav1
+export default Nav2

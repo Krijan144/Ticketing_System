@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import UserRegisterForm,QueryForm
+#from .forms import UserRegisterForm,QueryForm
 from .models import QueryModel,AnswerModel
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView, ListView
@@ -17,15 +17,15 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-    else:
-        form = UserRegisterForm()
-    return render(request, 'register.html', {'form': form})
+# def register(request):
+#     if request.method == 'POST':
+#         form = UserRegisterForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('login')
+#     else:
+#         form = UserRegisterForm()
+#     return render(request, 'register.html', {'form': form})
 
 # def query(request):
 #     if request.method == 'POST':
@@ -39,8 +39,8 @@ def register(request):
 
 @api_view(["GET"])
 def get_answer(request,id):
-    account = QueryModel.objects.get(id=id)
-    answer = AnswerModel(answer=account,answered_by=account,query=account)
+    account = AnswerModel.objects.get(id=AnswerModel.objects.query)
+    answer = AnswerModel(answer=account,answered_by=account)
     serializer = AnswerSerializer(answer)
     return JsonResponse({'answer': serializer.data}, safe=False, status=status.HTTP_200_OK)
 
@@ -72,4 +72,3 @@ def post_answer(request):
         return JsonResponse(serializer.data,status=status.HTTP_201_CREATED)
      else:
         return JsonResponse(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-

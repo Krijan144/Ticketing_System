@@ -39,9 +39,9 @@ class login extends Component{
             <div className="container">
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Email:
+                    Email:<br/>
                     <input type ="text" name="email" value={this.state.email} onChange={this.handleChange}/><br/>
-                    Password:
+                    Password:<br/>
                     <input type ="text" name="password" value={this.state.password} onChange={this.handleChange}/><br/>
                 </label><br/>
                 <input type="submit" value="LOGIN" className="btn-primary"/>
